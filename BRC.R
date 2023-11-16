@@ -22,7 +22,7 @@
 #' BR with regularization step.} \item{iter_cnt}{number of iterations.}
 #' @author Hidenori Okumura
 #' @references
-#' Okumura, H. (2021). Bias reduction and model selection in misspecified models. \emph{Commun. Stat. Theory Methods.} doi: 10.1080/03610926.2021.1959613.
+#' Okumura, H. (2023). Bias reduction and model selection in misspecified models. \emph{Commun. Stat. Theory Methods.}, 2751-2765.
 #' @examples
 #' library(BRC)
 #' n = 200; p = 13; rho = 0.5
@@ -117,8 +117,7 @@ BRC.fit <- function(X, y, family = c("binomial", "poisson", "gaussian"), penalty
     #    if(nb == old_nb){
     k <- k * accel_rate
     if(norm(old_theta_- theta_, "2") < EPS){
-      theta_ <- theta_[ix]
-      resoptim <- optim(theta_, M ,method = "BFGS")
+       resoptim <- optim(theta_, M ,method = "BFGS")
       theta_ <- resoptim$par
       break;
     }
